@@ -27,7 +27,3 @@ export default function defineCompany(
   });
   return company;
 };
-
-
-
-// Sequelize.Instance<
