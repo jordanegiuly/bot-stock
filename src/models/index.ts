@@ -3,8 +3,15 @@ import * as path from 'path'
 import * as Sequelize from 'sequelize'
 const basename = path.basename(module.filename)
 const config = require('../config/database');
-const db = {};
-var sequelize = new Sequelize(config.url);
+import * as Company from './company'
+
+
+type Model = Sequelize.Model<{}, {}>;
+interface DbConnection {
+  Company: Company.CompanyModel;
+}
+export const models = {} as DbConnection;
+export const sequelize = new Sequelize(config.url);
 
 fs
   .readdirSync(__dirname)
@@ -12,17 +19,14 @@ fs
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
   .forEach(function(file) {
-    var model = sequelize['import'](path.join(__dirname, file));
-    db[model['name']] = model;
+    const model = sequelize.import(path.join(__dirname, file));
+    models[model['name']] = model;
   });
 
-Object.keys(db).forEach(function(modelName) {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
+// Object.keys(models).forEach((modelName: string) => {
+//   if (models[modelName].associate) {
+//     models[modelName].associate(models);
+//   }
+// });
 
-db['sequelize'] = sequelize;
-db['Sequelize'] = Sequelize;
-
-export default db;
+export default models;
