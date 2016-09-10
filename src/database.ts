@@ -2,7 +2,16 @@ import * as Sequelize from 'sequelize'
 const config = require('./config/database');
 const connectionString = config.url
 
-var sequelize = new Sequelize(connectionString)
+import * as db from './models';
+const Company = require('./models').default.company;
+
+Company.findAll()
+.then(companies => {
+    console.log(companies);
+})
+.catch(err => {
+    console.log(err);
+});
 // sequelize.authenticate()
 // .then(() => {
 //     console.log('OK')
