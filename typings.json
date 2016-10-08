@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "express": "registry:npm/express#4.14.0+20160815112707",
+    "lodash": "registry:npm/lodash#4.0.0+20160723033700",
     "pg": "registry:npm/pg#6.0.2+20160802225752",
     "sequelize": "registry:npm/sequelize#3.0.0+20160825163932"
   },

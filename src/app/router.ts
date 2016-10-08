@@ -19,4 +19,18 @@ router.get('/companies', (req:express.Request, res:express.Response) => {
     })
 })
 
+router.get('/transaction_fees', (req:express.Request, res:express.Response) => {
+    models.TransactionFee.findAll()
+    .then(fees => {
+        const json = fees.map(fee => {
+            return fee.toJSON();
+        });
+        res.json(json)
+    })
+    .catch(err => {
+        res.send(err)
+    })
+})
+
+
 export default <express.Router>router;

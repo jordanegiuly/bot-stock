@@ -3,12 +3,15 @@ import * as path from 'path'
 import * as Sequelize from 'sequelize'
 const basename = path.basename(module.filename)
 const config = require('../config/database');
+
 import * as Company from './company'
+import * as TransactionFee from './transactionfee'
 
 
 type Model = Sequelize.Model<{}, {}>;
 interface DbConnection {
   Company: Company.CompanyModel;
+  TransactionFee: TransactionFee.TransactionFeeModel;
 }
 export const models = {} as DbConnection;
 export const sequelize = new Sequelize(config.url);
