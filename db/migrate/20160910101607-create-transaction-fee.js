@@ -11,6 +11,9 @@ module.exports = {
       fix: {
         type: Sequelize.FLOAT
       },
+      currency: {
+        type: Sequelize.STRING
+      },
       variable: {
         type: Sequelize.FLOAT
       },

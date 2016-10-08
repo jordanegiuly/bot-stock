@@ -12,6 +12,7 @@ export interface TransactionFeeInstance extends Sequelize.Instance<{}, Transacti
   createdAt: Date;
   updatedAt: Date;
   fix: number,
+  currency: string,
   variable: number,
   operationSide: number,
   region: string
@@ -24,14 +25,15 @@ export default function defineTransactionFee(
   ): TransactionFeeModel{
   const TransactionFee = sequelize.define<TransactionFeeInstance, TransactionFeeAttributes>('TransactionFee', {
     fix: DataTypes.FLOAT,
+    currency: DataTypes.STRING,
     variable: DataTypes.FLOAT,
     operationSide: DataTypes.INTEGER,
     region: DataTypes.STRING
   }, {
     classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
+      // associate: function(models) {
+      //   // associations can be defined here
+      // }
     }
   });
   return TransactionFee;

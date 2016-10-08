@@ -8,6 +8,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
         fix: 7.90,
+        currency: 'EUR',
         variable: 2.01,
         operationSide: +1,
         region: 'NYSE EURONEXT - EURONEXT PARIS'
@@ -16,6 +17,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
         fix: 35.00,
+        currency: 'EUR',
         variable: 0,
         operationSide: +1,
         region: 'LONDON STOCK EXCHANGE'
@@ -24,6 +26,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
         fix: 35.00,
+        currency: 'EUR',
         variable: 0,
         operationSide: +1,
         region: 'DEUTSCHE BOERSE XETRA'
